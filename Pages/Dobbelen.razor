@@ -1,0 +1,38 @@
+﻿@page "/dobbelen"
+<h1>Dobbelen</h1>
+<button class="btn btn-primary m-3" @onclick="GooiStenen">Gooi stenen</button>
+<div class="mb-3">
+    @foreach (var steen in stenen)
+    {
+        var pad = $"/images/{steen}.png";
+        <img src=@pad width="48" />
+    }
+</div>
+<p class="alert alert-info">Jouw score: @currentScore</p>
+
+@code {
+    private int currentScore = 0;
+    private List<int> stenen = new List<int>();
+    private static readonly int[] Waarden = { 1, 2, 3, 4, 5, 6 };
+
+    private int GetRandom()
+    {
+        Random random = new Random();
+        var index = random.Next(0, 2);
+        return Waarden[index];
+    }
+
+    private void GooiStenen()
+    {
+
+        currentScore = 0;
+        stenen.Clear();
+
+        for (int i = 0; i < 3; i++)
+        {
+            var roll = GetRandom();
+            stenen.Add(roll);
+            currentScore += roll;
+        }
+    }
+}
