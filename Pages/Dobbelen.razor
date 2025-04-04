@@ -13,25 +13,26 @@
 @code {
     private int currentScore = 0;
     private List<int> stenen = new List<int>();
+
+    private static readonly string[] Beelden = { "1", "2", "3", "4", "5", "6" };
     private static readonly int[] Waarden = { 1, 2, 3, 4, 5, 6 };
 
     private int GetRandom()
     {
         Random random = new Random();
-        var index = random.Next(0, 2);
+        var index = random.Next(0, Waarden.Length);
         return Waarden[index];
     }
 
     private void GooiStenen()
     {
-
         currentScore = 0;
         stenen.Clear();
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 2; i++)
         {
             var roll = GetRandom();
-            stenen.Add(roll);
+            stenen.Add(GetRandom());
             currentScore += roll;
         }
     }
