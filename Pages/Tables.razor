@@ -1,0 +1,51 @@
+﻿@page "/tables"
+<h2>Artikels</h2>
+<TableTemplate Items="artikels" TItem="Artikel" Context="artikel">
+    <TableHeader>
+        <th>Id</th>
+        <th>Naam</th>
+        <th>Prijs</th>
+        <th>Omschrijving</th>
+    </TableHeader>
+    <RowTemplate>
+        <td>@artikel.Id</td>
+        <td>@artikel.Naam</td>
+        <td>@artikel.Prijs</td>
+        <td>@artikel.Omschrijving</td>
+    </RowTemplate>
+</TableTemplate>
+<h2>Personen</h2>
+<TableTemplate Items="personen" TItem="Persoon" Context="Persoon">
+    <TableHeader>
+        <th>Id</th>
+        <th>Voornaam</th>
+        <th>Familienaam</th>
+    </TableHeader>
+    <RowTemplate>
+
+        <td>@Persoon.Id</td>
+        <td>@Persoon.Voornaam</td>
+        <td>@Persoon.Familienaam</td>
+    </RowTemplate>
+
+</TableTemplate>
+<TableTemplate Items="artikels" TItem="Artikel" Context="artikel">
+    <TableFooter>
+        &copy; VDAB 2020
+    </TableFooter>
+</TableTemplate>
+@code {
+    public IEnumerable<Artikel> artikels { get; set; } = new List<Artikel>() {
+new Artikel {Id = 1, Naam = "Zaag", Prijs = 11.50m,
+Omschrijving = "Handzaag 50cm" },
+new Artikel { Id = 2, Naam = "Hamer", Prijs = 74.99m,
+Omschrijving = "Voorhamer 10kg" },
+new Artikel { Id = 3, Naam = "Beitel", Prijs = 15.75m,
+Omschrijving = "Steenbeitel 30cm" }
+};
+    public IEnumerable<Persoon> personen { get; set; } = new List<Persoon>() {
+new Persoon { Id = 1, Voornaam = "Steven", Familienaam = "Lucas" },
+new Persoon { Id = 2, Voornaam = "John", Familienaam = "Fitzgerald" },
+new Persoon { Id = 3, Voornaam = "Rita", Familienaam = "Jones" }
+};
+}
