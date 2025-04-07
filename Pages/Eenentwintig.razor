@@ -10,15 +10,20 @@
 </div>
 <p class="alert alert-info">Jouw score : @currentScore</p>
 
+<CopyrightFooter Auteur="Steven">
+    <ChildContent>
+        <h4>Blazor rocks</h4>
+    </ChildContent>
+</CopyrightFooter>
 @code {
-private int currentScore = 0;
-private List<string> kaarten = new List<string>();
-        private static readonly string[] Soorten = { "H", "D", "C", "S" };
-        private static readonly string[] Beelden = { "7", "8", "9", "10",
-        "J", "Q", "K", "A" };
-        private static readonly byte[] Waarden = { 7, 8, 9, 10, 1, 2, 3, 11 };
-        private string GetRandomCard()
-        {
+    private int currentScore = 0;
+    private List<string> kaarten = new List<string>();
+    private static readonly string[] Soorten = { "H", "D", "C", "S" };
+    private static readonly string[] Beelden = { "7", "8", "9", "10",
+"J", "Q", "K", "A" };
+    private static readonly byte[] Waarden = { 7, 8, 9, 10, 1, 2, 3, 11 };
+    private string GetRandomCard()
+    {
         Random random = new Random();
         var soort = Soorten[random.Next(0, 4)];
         var kaart = random.Next(0, 8);
@@ -26,8 +31,9 @@ private List<string> kaarten = new List<string>();
         var waarde = Waarden[kaart];
         currentScore += waarde;
         return $"{beeld}{soort}";
-        }
-        private void TrekKaart(){
+    }
+    private void TrekKaart()
+    {
         kaarten.Add(GetRandomCard());
         if (currentScore > 21)
         {
