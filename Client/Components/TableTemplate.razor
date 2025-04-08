@@ -17,12 +17,8 @@
 </table>
 <tr>@TableFooter</tr>
 @code {
-    [Parameter]
-    public RenderFragment? TableHeader { get; set; }
-    [Parameter]
-    public RenderFragment<TItem>? RowTemplate { get; set; }
-    [Parameter]
-    public RenderFragment? TableFooter { get; set; }
-    [Parameter]
-    public IEnumerable<TItem>? Items { get; set; }
+    [Parameter] public IEnumerable<TItem>? Items { get; set; }
+    [Parameter] public RenderFragment? TableHeader { get; set; }
+    [Parameter] public RenderFragment<TItem>? RowTemplate { get; set; }
+    [Parameter] public RenderFragment? TableFooter { get; set; }
 }
