@@ -3,7 +3,17 @@
 <p>Getal : @getal</p>
 <button class="btn btn-primary" @onclick="Verhoog">Verhoog met 5</button>
 <Child @bind-GetalInChild="getal" />
+<div class="mb-3 row">
+    <label for="b" class="col-sm-1 col-form-label">Binding</label>
+    <div class="col-sm-3">
+        <textarea class="form-control" aria-label="With textarea" @bind="text" @bind:event="oninput"></textarea>
+    </div>
+</div>
+
+<p> Lengte van de tekst: @text.Trim().Length</p>
 @code {
+    private string text = "";
+
     private int getal;
     private void Verhoog()
     {
