@@ -10,12 +10,15 @@
 </div>
 <p class="alert alert-info">Jouw score : @currentScore</p>
 
-<CopyrightFooter Auteur="Steven">
-    <ChildContent>
-        <h4>Blazor rocks</h4>
-    </ChildContent>
+<CopyrightFooter @attributes="@footerAttributes">
+    Blazor rocks
 </CopyrightFooter>
+<button class="btn btn-primary m-3" @onclick="Verander">
+    Verander auteur
+</button>
 @code {
+
+
     private int currentScore = 0;
     private List<string> kaarten = new List<string>();
     private static readonly string[] Soorten = { "H", "D", "C", "S" };
@@ -40,5 +43,15 @@
             throw new InvalidOperationException("Je bent verbrand!");
         }
     }
+    private Dictionary<string, object> footerAttributes =
+    new Dictionary<string, object>()
+        {
+{ "auteur", "Steven" },
+{ "cursus", "Blazor" },
+{ "jaartal", 2020 },
+{ "doelgroep", ".NET ontwikkeling met C#" },
+        };
+
+    private void Verander() => footerAttributes["auteur"] = "Jantje";
 
 }
