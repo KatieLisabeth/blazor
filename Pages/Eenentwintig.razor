@@ -10,12 +10,15 @@
 </div>
 <p class="alert alert-info">Jouw score : @currentScore</p>
 
-<CopyrightFooter @attributes="@footerAttributes">
+<CopyrightFooter @attributes="@footerAttributes" @ref="reffooter">
     Blazor rocks
 </CopyrightFooter>
 <button class="btn btn-primary m-3" @onclick="Verander">
     Verander auteur
 </button>
+<button class="btn btn-primary m-3" @onclick="InfoOphalen">Info</button>
+<div>@cursus</div>
+<div>@info</div>
 @code {
 
 
@@ -53,5 +56,15 @@
         };
 
     private void Verander() => footerAttributes["auteur"] = "Jantje";
+
+    private CopyrightFooter? reffooter;
+
+    private string? cursus;
+    private string? info;
+    private void InfoOphalen()
+    {
+        cursus = reffooter?.Cursus;
+        info = reffooter?.AlleInfo();
+    }
 
 }
