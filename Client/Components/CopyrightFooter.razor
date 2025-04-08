@@ -9,4 +9,9 @@
     [Parameter] public int Jaartal { get; set; }
     [Parameter] public string? Doelgroep { get; set; }
     [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    public string AlleInfo()
+    {
+        return $"{Auteur} {Cursus} {Jaartal} {Doelgroep}";
+    }
 }
