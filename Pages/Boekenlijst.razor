@@ -1,0 +1,28 @@
+﻿@page "/boekenlijst"
+
+  <TableTemplate Items="boeken" TItem="Boeken" Context="boek">
+    <TableHeader>
+       <h2>Boekenlijs</h2>
+    </TableHeader>
+    <RowTemplate>
+        <td>
+        <img src="@boek.Afbeelding" alt="@boek.Afbeelding" width="150" />
+        </td>
+        <td>
+        <h2>@boek.Auteur</h2>
+        <h3>@boek.Titel</h3>
+        <p>@boek.Taal | @boek.Afwerking | @boek.ISBN | @boek.UitgifteDatum.ToString("MMMM yyyy") | @boek.AantalPaginas pagina's </p>
+        <p>@boek.Beschrijving</p>
+        </td>
+    </RowTemplate>
+    <TableFooter>
+        &copy; VDAB 2020
+    </TableFooter>
+</TableTemplate>
+@code {
+    public IEnumerable<Boeken> boeken { get; set; } = new List<Boeken>() {
+new Boeken {  Auteur = "J.K Rowling", Titel = "Harry Potter en de steen der wijzen" ,Afbeelding="/Images/SteenDerWijzen.jpg",Taal="Nederlands",Afwerking="Paperback",ISBN="978-90-6832-123-4",UitgifteDatum=new DateTime(2022,10,01),AantalPaginas=301,Beschrijving="Een roman over een jonge tovenaar die naar een speciale school voor tovenaars gaat."},
+new Boeken { Auteur = "Fjodor Dostojevski", Titel = "Schuld en boete",Afbeelding="/Images/SchuldEnBoete.jpg",Taal="Nederlands", Afwerking="Paperback",ISBN="978-90-6832-123-4",UitgifteDatum= new DateTime(2022,10,01),AantalPaginas=270,Beschrijving="Een roman over de morele en psychologische gevolgen van een moord."},
+new Boeken {  Auteur = "Hugo Claus", Titel = "Het verdriet van België",Afbeelding="/Images/VerdrietVanBelgie.jpg",Taal="Nederlands", Afwerking="Paperback",ISBN="978-90-6832-123-4",UitgifteDatum=new DateTime(2022,11,03),AantalPaginas=720,Beschrijving="Een roman over de jeugd van een jongen in België tijdens de Tweede Wereldoorlog."}
+};
+}
