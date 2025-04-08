@@ -15,25 +15,22 @@
     </RowTemplate>
 </TableTemplate>
 <h2>Personen</h2>
-<TableTemplate Items="personen" TItem="Persoon" Context="Persoon">
+<TableTemplate Items="personen" TItem="Persoon" Context="persoon">
     <TableHeader>
         <th>Id</th>
         <th>Voornaam</th>
         <th>Familienaam</th>
     </TableHeader>
     <RowTemplate>
-
-        <td>@Persoon.Id</td>
-        <td>@Persoon.Voornaam</td>
-        <td>@Persoon.Familienaam</td>
+        <td>@persoon.Id</td>
+        <td>@persoon.Voornaam</td>
+        <td>@persoon.Familienaam</td>
     </RowTemplate>
-
-</TableTemplate>
-<TableTemplate Items="artikels" TItem="Artikel" Context="artikel">
     <TableFooter>
         &copy; VDAB 2020
     </TableFooter>
 </TableTemplate>
+
 @code {
     public IEnumerable<Artikel> artikels { get; set; } = new List<Artikel>() {
 new Artikel {Id = 1, Naam = "Zaag", Prijs = 11.50m,
@@ -48,4 +45,5 @@ new Persoon { Id = 1, Voornaam = "Steven", Familienaam = "Lucas" },
 new Persoon { Id = 2, Voornaam = "John", Familienaam = "Fitzgerald" },
 new Persoon { Id = 3, Voornaam = "Rita", Familienaam = "Jones" }
 };
+
 }
