@@ -1,5 +1,7 @@
 ﻿@page "/"
-@inject Blazored.LocalStorage.ILocalStorageService localStore
+
+@using Blazored.LocalStorage
+@inject ILocalStorageService localStore
 
 <label for="naam" class="form-label">Jouw naam</label>
 @if (!naamgekend)
@@ -29,7 +31,7 @@ else
     }
     public async Task SaveLocalAsync()
     {
-        await localStore.SetItemAsync<string>("usernaam", naam);
+        await localStore.SetItemAsync<string>("usernaam", naam!);
         naamgekend = true;
     }
 
