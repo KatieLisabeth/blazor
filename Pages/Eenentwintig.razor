@@ -9,10 +9,11 @@
     }
 </div>
 <p class="alert alert-info">Jouw score : @currentScore</p>
-
-<CopyrightFooter @attributes="@footerAttributes" @ref="reffooter">
-    Blazor rocks
-</CopyrightFooter>
+<div>
+    <CopyrightFooter @attributes="@footerAttributes" @ref="reffooter">
+        Blazor rocks
+    </CopyrightFooter>
+</div>
 <button class="btn btn-primary m-3" @onclick="Verander">
     Verander auteur
 </button>
