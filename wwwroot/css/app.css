@@ -123,4 +123,8 @@ border-radius: 10px;
 .blogpostFooter {
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 margin-bottom: 30px;
-@page }
+}
+
+h1 {
+color:green;
+}
